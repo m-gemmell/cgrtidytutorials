@@ -6,7 +6,7 @@ output:
     allow_skip: true
     css: css/style.scss
 runtime: shiny_prerendered
-favicon: images/NEOF_favicon.png
+favicon: images/CGR_favicon.png
 description: >
   Tutorial covering the tibble 
 ---
@@ -36,7 +36,7 @@ This tutorial covers tibbles and contains the following sections:
 - __Printing or viewing:__ How tibbles are displayed/printed in R
 - __Adding rows and columns:__ Brief intro to adding new rows and columns to a tibble
 
-[Tidyverse Tibble page](https://neof-workshops.github.io/Tidyverse/tibble/tibble.html)
+[Tidyverse Tibble page](https://cgr-liverpool.github.io/Tidyverse/tibble/tibble.html)
 
 ### Overview
 
@@ -86,7 +86,7 @@ Below are three methods:
 In this section you will be given instructions to create tibbles.
 You will need to use the pre made code and the guidance on the below link to carry out the exercises.
 
-[Creating tibbles page](https://neof-workshops.github.io/Tidyverse/tibble/creating_tibbles.html)
+[Creating tibbles page](https://cgr-liverpool.github.io/Tidyverse/tibble/creating_tibbles.html)
 
 ### Code to tibble
 
@@ -220,7 +220,7 @@ print(head(tbl))
 
 For more details on the __tibble__ structure and to see how they are normally presented please see the below link:
 
-[Tibbles structure page](https://neof-workshops.github.io/Tidyverse/tibble/structure.html)
+[Tibbles structure page](https://cgr-liverpool.github.io/Tidyverse/tibble/structure.html)
 
 ### Quiz
 
@@ -283,7 +283,7 @@ Methods to subset __tibbles__ include:
   
 For more details and help for the following exercises please see the below link:
 
-[Tibbles subsetting page](https://neof-workshops.github.io/Tidyverse/tibble/subsetting.html)
+[Tibbles subsetting page](https://cgr-liverpool.github.io/Tidyverse/tibble/subsetting.html)
 
 ### Subsetting exercises
 
@@ -408,7 +408,7 @@ The rules for what is displayed are:
 
 For more detail please see:
 
-[Tibbles printing or viewing page](https://neof-workshops.github.io/Tidyverse/tibble/printing.html)
+[Tibbles printing or viewing page](https://cgr-liverpool.github.io/Tidyverse/tibble/printing.html)
 
 ## Adding rows and columns
 
@@ -425,9 +425,9 @@ However there are other functions in the next tutorial that tend to be more usef
 
 If you are interested in more please see the below link:
 
-[Tibbles adding rows or columns page](https://neof-workshops.github.io/Tidyverse/tibble/add_rows_and_columns.html)
+[Tibbles adding rows or columns page](https://cgr-liverpool.github.io/Tidyverse/tibble/add_rows_and_columns.html)
 
 ## Finish
 
 Thanks and great going completing this tutorial.
-With this overview of tibbles done you can move onto the next `learnr` tutorial covering the very powerful and flexible [`dplyr`](https://neof-workshops.github.io/Tidyverse/dplyr/dplyr.html).
+With this overview of tibbles done you can move onto the next `learnr` tutorial covering the very powerful and flexible [`dplyr`](https://cgr-liverpool.github.io/Tidyverse/dplyr/dplyr.html).

@@ -6,7 +6,7 @@ output:
     allow_skip: true
     css: css/style.scss
 runtime: shiny_prerendered
-favicon: images/NEOF_favicon.png
+favicon: images/CGR_favicon.png
 description: >
   Tutorial covering ggplot2 package 
 editor_options: 
@@ -105,7 +105,7 @@ There are multiple parts of a `ggplot2` figure including:
 There is a lot of information in our tidyverse website so through these parts we will ask you to read the relevant page.
 We will reinforce learning with MCQs (Multiple Choice Questions) and some coding challenges.
 
-[Tidyverse ggplot2 page](https://neof-workshops.github.io/Tidyverse/ggplot2/ggplot2.html)
+[Tidyverse ggplot2 page](https://cgr-liverpool.github.io/Tidyverse/ggplot2/ggplot2.html)
 
 ## Basic plot
 <center>
@@ -122,7 +122,7 @@ A basic plot consists of:
 
 Read through the below web page for more information:
 
-[Basic plot](https://neof-workshops.github.io/Tidyverse/ggplot2/basic_plot.html)
+[Basic plot](https://cgr-liverpool.github.io/Tidyverse/ggplot2/basic_plot.html)
 
 This is a basic introduction and more information on __input data__, __aesthetics__, and __components__ will be covered later.
 
@@ -195,7 +195,7 @@ Long data has the following three features:
 
 Read through the below web page which has a lot more information and theory on long/tidy data:
 
-[Input data](https://neof-workshops.github.io/Tidyverse/ggplot2/input_data.html)
+[Input data](https://cgr-liverpool.github.io/Tidyverse/ggplot2/input_data.html)
 
 ### Quiz
 
@@ -251,7 +251,7 @@ iris |>
 
 For information on different __aesthetics__ and which __aesthetics__ to use for __continuous__ and __categorical__ variables please read the following web page:
 
-[Aesthetics](https://neof-workshops.github.io/Tidyverse/ggplot2/aesthetics.html)
+[Aesthetics](https://cgr-liverpool.github.io/Tidyverse/ggplot2/aesthetics.html)
 
 ### Quiz & challenge
 
@@ -313,7 +313,7 @@ This allows you to start with a basic plot followed by iterations of additions a
 
 Read through the below web page for an example of building up a plot from basic to more complex and an explantion on the order of components:
 
-[Components](https://neof-workshops.github.io/Tidyverse/ggplot2/components.html)
+[Components](https://cgr-liverpool.github.io/Tidyverse/ggplot2/components.html)
 
 ### Challenges
 
@@ -388,16 +388,16 @@ This tutorial will focus on how to use them, not the when and whys.
 ### Exercises
 
 The following 6 sections are challenges.
-You will need to reference our [tidyverse website](https://neof-workshops.github.io/Tidyverse/ggplot2/ggplot2.html) to find the correct functions and their usage.
+You will need to reference our [tidyverse website](https://cgr-liverpool.github.io/Tidyverse/ggplot2/ggplot2.html) to find the correct functions and their usage.
 
 The challenges will be creating:
 
-- A Bar chart with [`geom_bar()`](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_bar.html)
-- A Histogram with [`geom_histogram()`](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_histogram.html)
-- A Line chart with [`geom_line()`](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_line.html)
-- A Scatter plot with [`geom_point()`](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_point.html)
-- A Box plot with [`geom_boxplot()`](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_boxplot.html)
-- A Hexagonal 2D bin count heatmap with [`geom_hex()`](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_others.html)
+- A Bar chart with [`geom_bar()`](https://cgr-liverpool.github.io/Tidyverse/ggplot2/geom_bar.html)
+- A Histogram with [`geom_histogram()`](https://cgr-liverpool.github.io/Tidyverse/ggplot2/geom_histogram.html)
+- A Line chart with [`geom_line()`](https://cgr-liverpool.github.io/Tidyverse/ggplot2/geom_line.html)
+- A Scatter plot with [`geom_point()`](https://cgr-liverpool.github.io/Tidyverse/ggplot2/geom_point.html)
+- A Box plot with [`geom_boxplot()`](https://cgr-liverpool.github.io/Tidyverse/ggplot2/geom_boxplot.html)
+- A Hexagonal 2D bin count heatmap with [`geom_hex()`](https://cgr-liverpool.github.io/Tidyverse/ggplot2/geom_others.html)
 
 ## Bar chart
 <center>
@@ -414,7 +414,7 @@ In other words:
 - Use `geom_bar()` as the `ggplot` layer
 - Set the option `position=` in `geom_bar()` so it displays relative proportions
 
-[Tidyverse `geom_bar()` page](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_bar.html)
+[Tidyverse `geom_bar()` page](https://cgr-liverpool.github.io/Tidyverse/ggplot2/geom_bar.html)
 
 ### Code
 
@@ -440,12 +440,12 @@ Ensure `NA` values in the `weight_g` column are not included.
 In other words:
 
 - Use the tibble `and_vertebrates` to create a `ggplot` object
-- Drop rows with `NA`s in the `weight_g` column (requires a [`tidyr` function](https://neof-workshops.github.io/Tidyverse/tidyr/tidyr.html))
+- Drop rows with `NA`s in the `weight_g` column (requires a [`tidyr` function](https://cgr-liverpool.github.io/Tidyverse/tidyr/tidyr.html))
 - Use `weight_g` as the __x__ aesthetic
 - Use `geom_histogram()` as the `ggplot` layer
 - Set the option `binwidth=` in `geom_histogram()` to __5__
 
-[Tidyverse `geom_histogram()` page](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_histogram.html)
+[Tidyverse `geom_histogram()` page](https://cgr-liverpool.github.io/Tidyverse/ggplot2/geom_histogram.html)
 
 ### Code
 
@@ -479,7 +479,7 @@ In other words:
 - Use `Region` as the __color__ aesthetic
 - Use `geom_line()` as the `ggplot` layer
 
-[Tidyverse `geom_line()` page](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_line.html)
+[Tidyverse `geom_line()` page](https://cgr-liverpool.github.io/Tidyverse/ggplot2/geom_line.html)
 
 ### Code
 
@@ -509,7 +509,7 @@ In other words:
 - Use `Sex` as the __color__ aesthetic
 - Use `geom_point()` as the `ggplot` layer
 
-[Tidyverse `geom_point()` page](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_point.html)
+[Tidyverse `geom_point()` page](https://cgr-liverpool.github.io/Tidyverse/ggplot2/geom_point.html)
 
 ### Code
 
@@ -538,7 +538,7 @@ In other words:
 - Use `Family` as the __y__ aesthetic
 - Use `geom_boxplot()` as the `ggplot` layer
 
-[Tidyverse `geom_boxplot()` page](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_boxplot.html)
+[Tidyverse `geom_boxplot()` page](https://cgr-liverpool.github.io/Tidyverse/ggplot2/geom_boxplot.html)
 
 ### Code
 
@@ -567,7 +567,7 @@ In other words:
 - Use `stem_height` as the __y__ aesthetic
 - Use `geom_hex()` as the `ggplot` layer
 
-[Tidyverse other geoms page](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_others.html)
+[Tidyverse other geoms page](https://cgr-liverpool.github.io/Tidyverse/ggplot2/geom_others.html)
 
 ### Code
 
@@ -593,18 +593,18 @@ A great advantage of `ggplot2` is the ability to customise plots by adding compo
 
 Various non layer components includes:
 
-- [__`labs()`__](https://neof-workshops.github.io/Tidyverse/ggplot2/labels.html): Modifying labels on the axes, legend, and other plot labels
-- [__`theme()`__](https://neof-workshops.github.io/Tidyverse/ggplot2/theme.html): Modifying components of a theme including the legend position and the font sizes in the plot
-- [__Scale values__](https://neof-workshops.github.io/Tidyverse/ggplot2/scale_values.html): How to modify the scale of the x and y axis (e.g. plot values as log10 values or square root values)
-- [__Colour scales__](https://neof-workshops.github.io/Tidyverse/ggplot2/colour_scales.html): How to set the colours for aesthetics
-- [__Guides__](https://neof-workshops.github.io/Tidyverse/ggplot2/guides.html): Modify the appearance of guides including the layout of the legend and axes values
+- [__`labs()`__](https://cgr-liverpool.github.io/Tidyverse/ggplot2/labels.html): Modifying labels on the axes, legend, and other plot labels
+- [__`theme()`__](https://cgr-liverpool.github.io/Tidyverse/ggplot2/theme.html): Modifying components of a theme including the legend position and the font sizes in the plot
+- [__Scale values__](https://cgr-liverpool.github.io/Tidyverse/ggplot2/scale_values.html): How to modify the scale of the x and y axis (e.g. plot values as log10 values or square root values)
+- [__Colour scales__](https://cgr-liverpool.github.io/Tidyverse/ggplot2/colour_scales.html): How to set the colours for aesthetics
+- [__Guides__](https://cgr-liverpool.github.io/Tidyverse/ggplot2/guides.html): Modify the appearance of guides including the layout of the legend and axes values
   - Setting number of rows for legend values
   - Allowing axis value/guides to dodge each other when they would otherwise overlap
-- [__Annotations__](https://neof-workshops.github.io/Tidyverse/ggplot2/annotation.html): Adding text and lines onto the plotting area
-  - Includes how to create a [statistical lm abline with the equation on the plot](https://neof-workshops.github.io/Tidyverse/ggplot2/annotation.html#statistical-abline-and-equation)
-- [__Coordinate systems__](https://neof-workshops.github.io/Tidyverse/ggplot2/coordinate_systems.html): Modify how the x and y aesthetics combine
+- [__Annotations__](https://cgr-liverpool.github.io/Tidyverse/ggplot2/annotation.html): Adding text and lines onto the plotting area
+  - Includes how to create a [statistical lm abline with the equation on the plot](https://cgr-liverpool.github.io/Tidyverse/ggplot2/annotation.html#statistical-abline-and-equation)
+- [__Coordinate systems__](https://cgr-liverpool.github.io/Tidyverse/ggplot2/coordinate_systems.html): Modify how the x and y aesthetics combine
   - Modify the x and y aspect ratio
-- [__Facetting__](https://neof-workshops.github.io/Tidyverse/ggplot2/facet.html): Splitting a plot into multiple panels by subsetting the visualised data by one or two metadata categories
+- [__Facetting__](https://cgr-liverpool.github.io/Tidyverse/ggplot2/facet.html): Splitting a plot into multiple panels by subsetting the visualised data by one or two metadata categories
 
 ### Quiz
 
@@ -612,7 +612,7 @@ There is a lot of information in the various web pages for the different compone
 Rather than reading through them all one-by-one, attempt the below questions.
 With each question search for the answer in the cookbook website.
 
-[Tidyverse customisation overview](https://neof-workshops.github.io/Tidyverse/ggplot2/ggplot2.html#customisation)
+[Tidyverse customisation overview](https://cgr-liverpool.github.io/Tidyverse/ggplot2/ggplot2.html#customisation)
 
 ### Annotate, lab or theme?
 
@@ -741,12 +741,12 @@ Each challenge will have the final code from the previous plots you created.
 You will need to follow the instructions to edit and add components to the code.
 Additionally, you will need to pipe the data into `dplyr` and `tidyr` functions before the `ggplot` creation for some of the challenges.
 
-This tutorial aims to make you familiar with `tidyverse` and our [Tidyverse website](https://neof-workshops.github.io/Tidyverse/).
+This tutorial aims to make you familiar with `tidyverse` and our [Tidyverse website](https://cgr-liverpool.github.io/Tidyverse/).
 Please use our site as a reference and feel free to copy, paste, and edit the code from it.
 
 ## Bar chart +
 
-Change the colours used for the __fill__ aesthetic to the Wong palette shown in the [Colour scales page](https://neof-workshops.github.io/Tidyverse/ggplot2/colour_scales.html).
+Change the colours used for the __fill__ aesthetic to the Wong palette shown in the [Colour scales page](https://cgr-liverpool.github.io/Tidyverse/ggplot2/colour_scales.html).
 
 Your final plot should look like the below:
 
@@ -980,7 +980,7 @@ Carry out the following:
 - Keep rows where `class` is equal to "poisonous"
 - Set the bin width of `geom_hex()` to 2
   - [official `geom_hex()` reference page](https://ggplot2.tidyverse.org//reference/geom_hex.html)
-[Tidyverse other geoms page](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_others.html)
+[Tidyverse other geoms page](https://cgr-liverpool.github.io/Tidyverse/ggplot2/geom_others.html)
 - Set the plot aspect ratio to 1
 - Set the continuous __x__ scale with the following features:
   - The name/label is "Stem width (cm)"

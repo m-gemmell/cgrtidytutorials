@@ -6,7 +6,7 @@ output:
     allow_skip: true
     css: css/style.scss
 runtime: shiny_prerendered
-favicon: images/NEOF_favicon.png
+favicon: images/CGR_favicon.png
 description: >
   Tutorial covering dplyr package 
 editor_options: 
@@ -39,7 +39,7 @@ This tutorial contains the following sections:
 -   **Grouping:** Grouping **tibbles** by a specific variable or variables and carrying out group wise calculations
 -   **Binding:** Binding **tibbles** together by columns or rows
 
-[Tidyverse Dplyr page](https://neof-workshops.github.io/Tidyverse/dplyr/dplyr.html)
+[Tidyverse Dplyr page](https://cgr-liverpool.github.io/Tidyverse/dplyr/dplyr.html)
 
 ## Pipes
 
@@ -61,7 +61,7 @@ A big advantage of pipes is that they are generally easier to read compared to n
 
 Read through the below link and use it as a guide to complete the challenges.
 
-[Pipes webpage](https://neof-workshops.github.io/Tidyverse/dplyr/pipes.html)
+[Pipes webpage](https://cgr-liverpool.github.io/Tidyverse/dplyr/pipes.html)
 
 The below code contains a lot of functions you haven't encountered or been taught yet.
 These will be covered later but you won't need to know how they work to convert the code to piped versions.
@@ -146,7 +146,7 @@ We'll continue to use pipes throughout this tutorial and further ones.
 
 <center>![](./images/dplyr_col_names.png){style="width:150px"}</center>
 
-As **tibbles** do not have row names (see [Tibble structures](https://neof-workshops.github.io/Tidyverse/tibble/structure.html)), column/variable names are frequently used in functions across `tidyverse` packages.
+As **tibbles** do not have row names (see [Tibble structures](https://cgr-liverpool.github.io/Tidyverse/tibble/structure.html)), column/variable names are frequently used in functions across `tidyverse` packages.
 
 ### Column names without quotes
 
@@ -192,7 +192,7 @@ living_planet_tbl |>
 
 ### To quote or not to quote
 
-Thankfully when printing or [glimpsing](https://neof-workshops.github.io/Tidyverse/dplyr/glimpse.html) (covered later) a **tibble** it will show which columns need quotes.
+Thankfully when printing or [glimpsing](https://cgr-liverpool.github.io/Tidyverse/dplyr/glimpse.html) (covered later) a **tibble** it will show which columns need quotes.
 
 Notice the `` `Shucked Weight` ``, `` `Viscera Weight` ``, and `` `Shell Weight` `` column names with their back ticks in the below code output.
 They will need bacticking/quoting in `tidyverse` functions.
@@ -213,12 +213,12 @@ crab_age_pred_tbl |> glimpse()
 
 The four main `dplyr` verbs (i.e. functions) to manipulate rows are:
 
--   [**`arrange()`**](https://neof-workshops.github.io/Tidyverse/dplyr/arrange.html): Arrange the rows of a **tibble**
+-   [**`arrange()`**](https://cgr-liverpool.github.io/Tidyverse/dplyr/arrange.html): Arrange the rows of a **tibble**
     -   Can be used to reorder the rows based on the values of a column
--   [**`distinct()`**](https://neof-workshops.github.io/Tidyverse/dplyr/distinct.html): Extracts unique/distinct rows from a **tibble**
--   [**`filter()`**](https://neof-workshops.github.io/Tidyverse/dplyr/filter.html): Extract rows by filtering with conditions
+-   [**`distinct()`**](https://cgr-liverpool.github.io/Tidyverse/dplyr/distinct.html): Extracts unique/distinct rows from a **tibble**
+-   [**`filter()`**](https://cgr-liverpool.github.io/Tidyverse/dplyr/filter.html): Extract rows by filtering with conditions
     -   Can be used to pick rows of certain groups, filter based on numeric sizes, and more
--   [**`slice()`**](https://neof-workshops.github.io/Tidyverse/dplyr/slice.html): A set of methods to choose a slice of rows based on index positions, top and bottom observations, and min and max values based on a specific column
+-   [**`slice()`**](https://cgr-liverpool.github.io/Tidyverse/dplyr/slice.html): A set of methods to choose a slice of rows based on index positions, top and bottom observations, and min and max values based on a specific column
     -   Especially useful for piping (`|>`)
 
 ## arrange()
@@ -231,7 +231,7 @@ The `arrange()` function allows you to arrange/order a **tibble** by a specified
 
 Read through the below link and use it as a guide to complete the challenges.
 
-[Dplyr arrange() page](https://neof-workshops.github.io/Tidyverse/dplyr/arrange.html)
+[Dplyr arrange() page](https://cgr-liverpool.github.io/Tidyverse/dplyr/arrange.html)
 
 ### Challenge 1
 
@@ -313,7 +313,7 @@ It is a fairly straightforward command so we'll move onto `filter()`.
 
 For further examples please see:
 
-[Dplyr distinct() webpage](https://neof-workshops.github.io/Tidyverse/dplyr/distinct.html)
+[Dplyr distinct() webpage](https://cgr-liverpool.github.io/Tidyverse/dplyr/distinct.html)
 
 ## filter()
 
@@ -331,7 +331,7 @@ As the `filter()` function is incredibly useful the below challenges are quite d
 
 Read through and use the guidance in the below link to complete the challenges.
 
-[Dplyr filter() page](https://neof-workshops.github.io/Tidyverse/dplyr/filter.html)
+[Dplyr filter() page](https://cgr-liverpool.github.io/Tidyverse/dplyr/filter.html)
 
 **Tip:** You can run the below code block before typing any code to view the initial **tibbles**.
 
@@ -432,7 +432,7 @@ On top of the base `slice()` function there are a variety with different applica
 
 Read through the below link and attempt the below challenges.
 
-[Dplyr slice() page](https://neof-workshops.github.io/Tidyverse/dplyr/slice.html)
+[Dplyr slice() page](https://cgr-liverpool.github.io/Tidyverse/dplyr/slice.html)
 
 ### Challenge 1
 
@@ -516,14 +516,14 @@ question("Which function can extract rows using conditions on columns?",
 
 The six main verbs (i.e. functions) to manipulate columns are:
 
--   [**`glimpse()`**](https://neof-workshops.github.io/Tidyverse/dplyr/glimpse.html): Print a **tibble** in a transposed manner
+-   [**`glimpse()`**](https://cgr-liverpool.github.io/Tidyverse/dplyr/glimpse.html): Print a **tibble** in a transposed manner
     -   Useful for seeing the data types of all the columns.
--   [**`mutate()`**](https://neof-workshops.github.io/Tidyverse/dplyr/mutate.html): Mutate columns to create new columns based on existing ones, modify existing columns, and delete columns
--   [**`pull()`**](https://neof-workshops.github.io/Tidyverse/dplyr/pull.html): Pull out a single column from a **tibble**, resulting in a **vector**
--   [**`relocate()`**](https://neof-workshops.github.io/Tidyverse/dplyr/relocate.html): Relocate columns
+-   [**`mutate()`**](https://cgr-liverpool.github.io/Tidyverse/dplyr/mutate.html): Mutate columns to create new columns based on existing ones, modify existing columns, and delete columns
+-   [**`pull()`**](https://cgr-liverpool.github.io/Tidyverse/dplyr/pull.html): Pull out a single column from a **tibble**, resulting in a **vector**
+-   [**`relocate()`**](https://cgr-liverpool.github.io/Tidyverse/dplyr/relocate.html): Relocate columns
     -   You can relocate columns to the start or end, and you can move them after or before specified columns
--   [**`rename()`**](https://neof-workshops.github.io/Tidyverse/dplyr/rename.html): Rename columns in a **tibble**
--   [**`select()`**](https://neof-workshops.github.io/Tidyverse/dplyr/select.html): Select specific columns of a **tibble**
+-   [**`rename()`**](https://cgr-liverpool.github.io/Tidyverse/dplyr/rename.html): Rename columns in a **tibble**
+-   [**`select()`**](https://cgr-liverpool.github.io/Tidyverse/dplyr/select.html): Select specific columns of a **tibble**
     -   Can be used with a variety of helper functions such as `starts_with()`, `ends_with()`, `contains()`, and `matches()`
 
 On top of these functions the exercises will also use the row functions we've covered to reinforce learning.
@@ -536,7 +536,7 @@ It also allows us to make even more interesting and useful piped code.
 The function `dplyr::glimpse()` allows you to print **tibbles** in a transposed manner.
 This will allow you to view all the columns with their data type and some of the first values.
 
-[Dplyr glimpse() page](https://neof-workshops.github.io/Tidyverse/dplyr/glimpse.html)
+[Dplyr glimpse() page](https://cgr-liverpool.github.io/Tidyverse/dplyr/glimpse.html)
 
 Below is an example of glimpsing the `lterdatasampler::hbr_maples` **tibble**.
 
@@ -564,9 +564,9 @@ As it is a commonly used function there will be 6 challenges which will also inc
 
 Read through and use the guidance in the below link to complete the challenges.
 
-[Dplyr select() page](https://neof-workshops.github.io/Tidyverse/dplyr/select.html)
+[Dplyr select() page](https://cgr-liverpool.github.io/Tidyverse/dplyr/select.html)
 
-**Tip:** Use [the main dplyr page](https://neof-workshops.github.io/Tidyverse/dplyr/dplyr.html) to get an overview of all the `dplyr` functions.
+**Tip:** Use [the main dplyr page](https://cgr-liverpool.github.io/Tidyverse/dplyr/dplyr.html) to get an overview of all the `dplyr` functions.
 
 ### Challenge 1
 
@@ -687,7 +687,7 @@ You can use operators and/or functions in a `mutate()` function with one or more
 
 Read through and use the guidance in the below link to complete the challenges.
 
-[Dplyr mutate() page](https://neof-workshops.github.io/Tidyverse/dplyr/mutate.html)
+[Dplyr mutate() page](https://cgr-liverpool.github.io/Tidyverse/dplyr/mutate.html)
 
 ### Challenge 1
 
@@ -752,7 +752,7 @@ The function `dplyr::pull()` pulls out a single column as a vector.
 
 Read through and use the guidance in the below link to complete the challenges.
 
-[Dplyr pull() page](https://neof-workshops.github.io/Tidyverse/dplyr/pull.html)
+[Dplyr pull() page](https://cgr-liverpool.github.io/Tidyverse/dplyr/pull.html)
 
 ### Challenge 1
 
@@ -803,7 +803,7 @@ The function `dplyr::relocate()` can change the order of columns.
 
 Read through and use the guidance in the below link to complete the following challenges.
 
-[Dplyr relocate() page](https://neof-workshops.github.io/Tidyverse/dplyr/relocate.html)
+[Dplyr relocate() page](https://cgr-liverpool.github.io/Tidyverse/dplyr/relocate.html)
 
 ### Challenge 1
 
@@ -846,7 +846,7 @@ The function `dplyr::rename()` allows you to rename column names in a **tibble**
 
 Read through and use the guidance in the below link to complete the following challenge.
 
-[Dplyr rename() page](https://neof-workshops.github.io/Tidyverse/dplyr/rename.html)
+[Dplyr rename() page](https://cgr-liverpool.github.io/Tidyverse/dplyr/rename.html)
 
 ### Challenge 1
 
@@ -891,9 +891,9 @@ Grouped **tibbles** can then be analysed with the following functions:
 
 Read through and use the guidance in the below links to complete the following challenges.
 
--   [Dplyr group_by() page](https://neof-workshops.github.io/Tidyverse/dplyr/group_by.html)
--   [Dplyr count() page](https://neof-workshops.github.io/Tidyverse/dplyr/count.html)
--   [Dplyr summarise() page](https://neof-workshops.github.io/Tidyverse/dplyr/summarise.html)
+-   [Dplyr group_by() page](https://cgr-liverpool.github.io/Tidyverse/dplyr/group_by.html)
+-   [Dplyr count() page](https://cgr-liverpool.github.io/Tidyverse/dplyr/count.html)
+-   [Dplyr summarise() page](https://cgr-liverpool.github.io/Tidyverse/dplyr/summarise.html)
 
 ### Challenge 1
 
@@ -975,7 +975,7 @@ Finally its time to look at how to bind **tibbles**.
 
 Read through and use the guidance in the below links to complete the following challenges.
 
-[Dplyr Bind tibbles page](https://neof-workshops.github.io/Tidyverse/dplyr/bind_tibbles.html)
+[Dplyr Bind tibbles page](https://cgr-liverpool.github.io/Tidyverse/dplyr/bind_tibbles.html)
 
 The below challenges will require you to subset a tibble in 2 different ways and then bind those **tibbles** together.
 You will need various `dplyr` functions that you have learnt throughout this tutorial.

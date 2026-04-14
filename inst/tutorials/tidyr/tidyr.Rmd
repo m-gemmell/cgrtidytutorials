@@ -6,7 +6,7 @@ output:
     allow_skip: true
     css: css/style.scss
 runtime: shiny_prerendered
-favicon: images/NEOF_favicon.png
+favicon: images/CGR_favicon.png
 description: >
   Tutorial covering tidyr package 
 editor_options: 
@@ -45,7 +45,7 @@ This tutorial will have three main sections:
 - __Character vectors:__ Separating and uniting character columns
 - __Missing values:__ Removing or replacing NAs in tibbles.
 
-[Tidyverse Tidyr page](https://neof-workshops.github.io/Tidyverse/tidyr/tidyr.html)
+[Tidyverse Tidyr page](https://cgr-liverpool.github.io/Tidyverse/tidyr/tidyr.html)
 
 ## Long versus wide
 <center>
@@ -116,7 +116,7 @@ The `pivot_longer()` function is a relatively straightforward function for longi
 
 Read through the below link and use it as a guide to complete the challenges.
 
-[Tidyr pivot_longer() page](https://neof-workshops.github.io/Tidyverse/tidyr/pivot_longer.html)
+[Tidyr pivot_longer() page](https://cgr-liverpool.github.io/Tidyverse/tidyr/pivot_longer.html)
 
 ### Challenge 1
 
@@ -168,7 +168,7 @@ The `pivot_wider()` function is used for widening a tibble.
 
 Read through the below link and use it as a guide to complete the challenge.
 
-[Tidyr pivot_wider() page](https://neof-workshops.github.io/Tidyverse/tidyr/pivot_wider.html)
+[Tidyr pivot_wider() page](https://cgr-liverpool.github.io/Tidyverse/tidyr/pivot_wider.html)
 
 ### Challenge 1
 
@@ -217,7 +217,7 @@ The `separate_wider_delim()` function can split a character column into multiple
 
 Read through the below link and use it as a guide to complete the challenge.
 
-[Tidyr separate_wider_delim() page](https://neof-workshops.github.io/Tidyverse/tidyr/separate_wider.html)
+[Tidyr separate_wider_delim() page](https://cgr-liverpool.github.io/Tidyverse/tidyr/separate_wider.html)
 
 ### Challenge 1
 
@@ -247,7 +247,7 @@ The `unite()` function can combine multiple character columns into one.
 
 Read through the below link and use it as a guide to complete the challenges.
 
-[Tidyr unite() page](https://neof-workshops.github.io/Tidyverse/tidyr/unite.html)
+[Tidyr unite() page](https://cgr-liverpool.github.io/Tidyverse/tidyr/unite.html)
 
 ### Challenge 1
 
@@ -317,7 +317,7 @@ The `drop_na()` function can remove rows containing `NA`s.
 
 Read through the below link and use it as a guide to complete the challenges.
 
-[Tidyr drop_na() page](https://neof-workshops.github.io/Tidyverse/tidyr/drop_na.html)
+[Tidyr drop_na() page](https://cgr-liverpool.github.io/Tidyverse/tidyr/drop_na.html)
 
 ### Challenge 1
 
@@ -357,7 +357,7 @@ The `replace_na()` function can replace `NA` values in columns.
 
 Read through the below link and use it as a guide to complete the challenge.
 
-[Tidyr replace_na() page](https://neof-workshops.github.io/Tidyverse/tidyr/replace_na.html)
+[Tidyr replace_na() page](https://cgr-liverpool.github.io/Tidyverse/tidyr/replace_na.html)
 
 ### Challenge 1
 
