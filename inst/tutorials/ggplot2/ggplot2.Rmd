@@ -1,0 +1,1039 @@
+---
+title: "Ggplot2 tutorial"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+    css: css/style.scss
+runtime: shiny_prerendered
+favicon: images/NEOF_favicon.png
+description: >
+  Tutorial covering ggplot2 package 
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+learnr::tutorial_options(exercise.completion = FALSE)
+library(tidyverse)
+library(lterdatasampler)
+library(mgrtibbles)
+library(hexbin)
+knitr::opts_chunk$set(echo = FALSE)
+tutorial_options(exercise.timelimit = 300)
+```
+
+## ggplot2
+
+<center>
+![](./images/ggplot2.png){style="width:150px"}
+</center>
+
+This tutorial covers `ggplot2`, the visualisation package of `Tidyverse`.
+It utilises the __grammar of graphics__ (the gg in `ggplot2`) to create plots/figures in a layered/compartmentalised fashion.
+
+### Sections
+
+This tutorial will contain the following sections:
+
+### Anatomy
+<center>
+![](./images/ggplot2_anatomy.png){style="width:150px"}
+</center>
+
+
+An introduction to `ggplot2` covering: 
+
+- The creation of a basic plot
+- The format of input data
+- Mapping variables/columns to __Aesthetics__
+- Building up a plot with __components__ using `+`
+
+### Layers
+<center>
+![](./images/ggplot2_layers.png){style="width:150px"}
+</center>
+
+The different types of plots/geoms including:
+
+- Bar charts with `geom_bar()`
+- Histograms with `geom_histogram()`
+- Line graphs with `geom_line()`
+- Scatter plots with `geom_point()`
+- Box and whisker plots with `geom_boxplot()`
+- Other geoms
+
+### Customisations
+<center>
+![](./images/ggplot2_customise.png){style="width:150px"}
+</center>
+
+There are many components that can be used to customise your plots including:
+
+- Modifying labels with `labs()`
+- Changing the legend and fonts with `theme()`
+- Modifying the scale of the x and/or y axis
+- Changing the colours used for aesthetics
+- Changing the guides (i.e. the legend and axis values)
+- Adding annotations on top of plots
+- Modify the x and y axis aspect ratio
+- Facet/split the plot into multiple panels based on variables
+
+### Challenges +
+<center>
+![](./images/ggplot2_challenges.png){style="width:150px"}
+</center>
+
+The final section will consist of challenges to test your skills on all the previous parts.
+This will involve adding components to basic `ggplot` objects/figures to customise them and add complexity.
+
+## Anatomy
+<center>
+![](./images/ggplot2_anatomy.png){style="width:150px"}
+</center>
+
+There are multiple parts of a `ggplot2` figure including:
+
+- The `ggplot2` object that contains the __data__ and __aesthetics__
+- The __aesthetics__: The visual properties of the plot that the variables/columns are mapped to (x axis, y-axis, colour etc.)
+- The __geom layers__: How the aesthetics are visualised (bar chart, boxplot, histogram etc.)
+- The __guides__: The text and other information on the axes and legends (labels, titles, etc.)
+- __Facetting__: Splitting of data to multiple plots (e.g. side by side box plots displaying different metrics)
+
+There is a lot of information in our tidyverse website so through these parts we will ask you to read the relevant page.
+We will reinforce learning with MCQs (Multiple Choice Questions) and some coding challenges.
+
+[Tidyverse ggplot2 page](https://neof-workshops.github.io/Tidyverse/ggplot2/ggplot2.html)
+
+## Basic plot
+<center>
+![](./images/ggplot2_basic_plot.png){style="width:150px"}
+</center>
+
+A basic plot consists of:
+
+- Creating a `ggplot` object with `ggplot()` which includes:
+  - __The input data:__ a long formatted table, typically in `tibble` or `data.frame` format
+  - __Aesthetic mappings:__ The parts of a plot __variables/columns__ are mapped to
+- Adding components with `+`
+- Adding at least one __layer/geom__ to determine how the __aesthetics__ are visualised (e.g a bar chart with `geom_bar()`) 
+
+Read through the below web page for more information:
+
+[Basic plot](https://neof-workshops.github.io/Tidyverse/ggplot2/basic_plot.html)
+
+This is a basic introduction and more information on __input data__, __aesthetics__, and __components__ will be covered later.
+
+### Quiz
+
+Once you have finished reading the web page attempt the below questions.
+
+```{r basic-plot-1-mcq, echo=FALSE}
+question("Which symbol is used to add components to a `ggplot` object?",
+  answer("`<-`"),
+  answer("`|>`"),
+  answer("`+`", correct = TRUE),
+  allow_retry = TRUE
+)
+```
+
+```{r basic-plot-2-mcq, echo=FALSE}
+question("What is the order of the first 2 parameters in the `ggplot` function?",
+  answer("`data=, mapping=`", correct = TRUE),
+  answer("`mapping=, data=`"),
+  allow_retry = TRUE
+)
+```
+
+### Challenge
+
+Complete the below code by:
+
+- Adding the `Year` column as the __x__ aesthetic
+- Adding the `Population` column as the __y__ aesthetic
+- Adding the `ggplot2::geom_line()` layer as the last component to create a line chart
+
+```{r basic-plot-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%"}
+world_pop_tbl |>
+  #Filter to only retain Australia rows
+  dplyr::filter(`Country/Territory` == "Australia") |>
+  #Convert Year column to numeric for plotting
+  dplyr::mutate(Year=as.numeric(Year)) |>
+  #ggplot object
+  ggplot2::ggplot(aes())
+```
+
+```{r basic-plot-exercise-solution}
+world_pop_tbl |>
+  #Filter to only retain Australia rows
+  dplyr::filter(`Country/Territory` == "Australia") |>
+  #Convert Year column to numeric for plotting
+  dplyr::mutate(Year=as.numeric(Year)) |>
+  #ggplot object
+  ggplot2::ggplot(aes(x = Year, y = Population)) +
+  #Line component/layer
+  ggplot2::geom_line()
+```
+
+Excellent!
+Now to look at the input data for `ggplot2`.
+
+## Input data
+<center>
+![](./images/ggplot2_input.png){style="width:150px"}
+</center>
+
+Input tables (`tibbles` or `data.frames`) for `ggplot2` must be long formatted.
+
+Long data has the following three features:
+
+- Each __variable__ is a __column__; each __column__ is a __variable__
+- Each __observation__ is a __row__; each __row__ is an __observation__
+- Each __value__ is a __cell__; each __cell__ is a single __value__
+
+Read through the below web page which has a lot more information and theory on long/tidy data:
+
+[Input data](https://neof-workshops.github.io/Tidyverse/ggplot2/input_data.html)
+
+### Quiz
+
+To assess your understanding please attempt the below questions.
+
+```{r input-1-mcq, echo=FALSE}
+question("In long/tidy data, what is each column?",
+  answer("An observation"),
+  answer("A value"),
+  answer("A variable", correct = TRUE),
+  allow_retry = TRUE
+)
+```
+
+```{r input-2-mcq, echo=FALSE}
+question("In long/tidy data, what is each row?",
+  answer("An observation", correct = TRUE),
+  answer("A value"),
+  answer("A variable"),
+  allow_retry = TRUE
+)
+```
+
+```{r input-3-mcq, echo=FALSE}
+question("In long/tidy data, what is each cell?",
+  answer("An observation"),
+  answer("A value", correct = TRUE),
+  answer("A variable"),
+  allow_retry = TRUE
+)
+```
+
+Great!
+Next we'll cover aesthetics.
+
+## Aesthetics
+<center>
+![](./images/ggplot2_aesthetics.png){style="width:150px"}
+</center>
+
+__Aesthetics__ in `ggplot2` refer to the different visual properties of a plot.
+__Variables/columns__ are mapped to different __aesthetics__ to determine what data is plotted.
+
+Below is a `ggplot` scatter plot (`geom_point()`) using the `iris` dataset.
+The `Sepal.Width` variable is mapped to the __x aesthetic__ whilst the `Sepal.Length` variable is mapped to the __y aesthetic__.
+No other __aesthetics__ are used.
+
+```{r ciris-example, out.width="100%"}
+iris |>
+  ggplot2::ggplot(aes(x=Sepal.Width, y=Sepal.Length)) +
+  ggplot2::geom_point()
+```
+
+For information on different __aesthetics__ and which __aesthetics__ to use for __continuous__ and __categorical__ variables please read the following web page:
+
+[Aesthetics](https://neof-workshops.github.io/Tidyverse/ggplot2/aesthetics.html)
+
+### Quiz & challenge
+
+Attempt the below questions.
+All correct options must be chosen in the below questions.
+
+```{r aes-1-mcq, echo=FALSE}
+question("Which aesthetics should only be used for continuous variables?",
+  answer("color"),
+  answer("fill"),
+  answer("linetype"),
+  answer("linewidth", correct=TRUE),
+  answer("shape"),
+  answer("size", correct=TRUE),
+  answer("x"),
+  answer("y"),
+  allow_retry = TRUE
+)
+```
+
+```{r aes-2-mcq, echo=FALSE}
+question("Which aesthetics should only be used for categorical variables?",
+  answer("color"),
+  answer("fill"),
+  answer("linetype", correct=TRUE),
+  answer("linewidth"),
+  answer("shape", correct=TRUE),
+  answer("size"),
+  answer("x"),
+  answer("y"),
+  allow_retry = TRUE
+)
+```
+
+```{r aes-3-mcq, echo=FALSE}
+question("Which aesthetics can be used for categorical or continuous variables?",
+  answer("color", correct=TRUE),
+  answer("fill", correct=TRUE),
+  answer("linetype"),
+  answer("linewidth"),
+  answer("shape"),
+  answer("size"),
+  answer("x", correct=TRUE),
+  answer("y", correct=TRUE),
+  allow_retry = TRUE
+)
+```
+
+Super!
+Now it is time to look at components.
+
+## Components
+<center>
+![](./images/ggplot2_components.png){style="width:150px"}
+</center>
+
+The power and flexibility of `ggplot2` comes from the ability to add various components with `+`.
+This allows you to start with a basic plot followed by iterations of additions and edits rather than needing to fully visualise the plot before creating it. 
+
+Read through the below web page for an example of building up a plot from basic to more complex and an explantion on the order of components:
+
+[Components](https://neof-workshops.github.io/Tidyverse/ggplot2/components.html)
+
+### Challenges
+
+After reading the web page you can carry out the below challenges.
+They all involve adding components to a `ggplot` object.
+
+The challenges have an extra step that you can optionally carry out.
+
+### Challenge 1
+
+Create a scatter plot of `leaf1area` on the x axis and `leaf2area` on the y axis for the tibble `hbrmaples`.
+
+You will need to add the component `ggplot2::geom_point()` to the below code.
+
+__Extra:__ Before creating the `ggplot` object remove rows with `NA`s. 
+
+```{r component-1-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%"}
+hbr_maples |>
+  ggplot2::ggplot(aes(x=leaf1area, y=leaf2area))
+```
+
+```{r component-1-exercise-solution}
+hbr_maples |>
+  #Remove rows with NAs
+  tidyr::drop_na() |>
+  #Point plot of leaf1area (x) against leaf2area (y)
+  ggplot2::ggplot(aes(x=leaf1area, y=leaf2area)) +
+  ggplot2::geom_point()
+```
+
+### Challenge 2
+
+Add a box plot component (`ggplot2::geom_boxplot()`) to the below plot, ensuring the points are on top of the boxes.
+
+__Extra:__ Change `geom_point()` to `geom_jitter()`.
+
+```{r component-2-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%"}
+hbr_maples |>
+  #Remove rows with NAs
+  tidyr::drop_na() |>
+  #Ggplot of stem_length (y) against watershed (x)
+  ggplot2::ggplot(aes(x=watershed, y=stem_length)) +
+  ggplot2::geom_point()
+```
+
+```{r component-2-exercise-solution}
+hbr_maples |>
+  #Remove rows with NAs
+  tidyr::drop_na() |>
+  #Ggplot of stem_length (y) against watershed (x)
+  ggplot2::ggplot(aes(x=watershed, y=stem_length)) +
+  #Boxplot
+  ggplot2::geom_boxplot() +
+  #Jitter points (on top of box plots)
+  ggplot2::geom_jitter()
+```
+
+Brilliant!
+That's the introduction to `ggplot2` done.
+It's time to look at various layers.
+
+## Layers
+
+<center>
+![](./images/ggplot2_layers.png){style="width:150px"}
+</center>
+
+Layers are vital for `ggplot2`, without them your data will not be visualised.
+There are many different types, all with their own strengths and weaknesses.
+This tutorial will focus on how to use them, not the when and whys.
+
+### Exercises
+
+The following 6 sections are challenges.
+You will need to reference our [tidyverse website](https://neof-workshops.github.io/Tidyverse/ggplot2/ggplot2.html) to find the correct functions and their usage.
+
+The challenges will be creating:
+
+- A Bar chart with [`geom_bar()`](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_bar.html)
+- A Histogram with [`geom_histogram()`](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_histogram.html)
+- A Line chart with [`geom_line()`](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_line.html)
+- A Scatter plot with [`geom_point()`](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_point.html)
+- A Box plot with [`geom_boxplot()`](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_boxplot.html)
+- A Hexagonal 2D bin count heatmap with [`geom_hex()`](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_others.html)
+
+## Bar chart
+<center>
+![](./images/ggplot2_geom_bar.png){style="width:150px"}
+</center>
+
+Create a bar chart with `mushroom_tbl` showing the relative proportions of the different cap shapes across the different cap colours.
+
+In other words:
+
+- Use the tibble `mushroom_tbl` to create a `ggplot` object
+- Use `cap_color` as the __x__ aesthetic
+- Use `cap_shape` as the __fill__ aesthetic
+- Use `geom_bar()` as the `ggplot` layer
+- Set the option `position=` in `geom_bar()` so it displays relative proportions
+
+[Tidyverse `geom_bar()` page](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_bar.html)
+
+### Code
+
+```{r bar-chart-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%"}
+mushroom_tbl
+```
+
+```{r bar-chart-exercise-solution}
+mushroom_tbl |>
+  ggplot2::ggplot(aes(x=cap_color, fill=cap_shape)) +
+  #Relative proportion bar chart
+  ggplot2::geom_bar(position="fill")
+```
+
+## Histogram
+<center>
+![](./images/ggplot2_geom_histogram.png){style="width:150px"} 
+</center>
+
+Create a histogram with `and_vertebrates` of weight counts with bin sizes of 5.
+Ensure `NA` values in the `weight_g` column are not included.
+
+In other words:
+
+- Use the tibble `and_vertebrates` to create a `ggplot` object
+- Drop rows with `NA`s in the `weight_g` column (requires a [`tidyr` function](https://neof-workshops.github.io/Tidyverse/tidyr/tidyr.html))
+- Use `weight_g` as the __x__ aesthetic
+- Use `geom_histogram()` as the `ggplot` layer
+- Set the option `binwidth=` in `geom_histogram()` to __5__
+
+[Tidyverse `geom_histogram()` page](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_histogram.html)
+
+### Code
+
+```{r histogram-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%"}
+and_vertebrates
+```
+
+```{r histogram-exercise-solution}
+and_vertebrates |>
+  #Remove rows with NAs in weight_g column
+  tidyr::drop_na(weight_g) |>
+  #ggplot histogram of weight counts
+  ggplot2::ggplot(aes(x=weight_g)) +
+  #Bin width set to 5
+  ggplot2::geom_histogram(binwidth=5)
+```
+
+## Line chart
+<center>
+![](./images/ggplot2_geom_line.png){style="width:150px"}
+</center>
+
+Create a line chart with `living_planet_tbl` plotting the Average Living Planet Index (y) against the year (x) with the lines coloured by Region.
+
+In other words:
+
+- Use the tibble `living_planet_tbl` to create a `ggplot` object
+- Use `Year` as the __x__ aesthetic
+- Use `Average Index` as the __y__ aesthetic
+  - Remember to use backticks (`` ` ``) when using column names with spaces
+- Use `Region` as the __color__ aesthetic
+- Use `geom_line()` as the `ggplot` layer
+
+[Tidyverse `geom_line()` page](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_line.html)
+
+### Code
+
+```{r line-chart-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%"}
+living_planet_tbl
+```
+
+```{r line-chart-exercise-solution}
+living_planet_tbl |>
+  #ggplot line chart of average index (y) against Year (x) split by Region
+  ggplot(aes(x=Year, y=`Average Index`, colour=Region)) +
+  geom_line()
+```
+
+## Scatter plot
+<center>
+![](./images/ggplot2_geom_point.png){style="width:150px"}
+</center>
+
+Create a scatter pot with `crab_age_pred_tbl` plotting height (y) against length (x) with the points coloured by sex.
+
+In other words:
+
+- Use the tibble `crab_age_pred_tbl` to create a `ggplot` object
+- Use `Length` as the __x__ aesthetic
+- Use `Height` as the __y__ aesthetic
+- Use `Sex` as the __color__ aesthetic
+- Use `geom_point()` as the `ggplot` layer
+
+[Tidyverse `geom_point()` page](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_point.html)
+
+### Code
+
+```{r point-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%"}
+crab_age_pred_tbl
+```
+
+```{r point-exercise-solution}
+crab_age_pred_tbl |>
+  #ggplot point chart of Height (y) against Length (x) coloured by sex
+  ggplot2::ggplot(aes(x=Length, y=Height, color=Sex)) +
+  ggplot2::geom_point()
+```
+
+## Boxplot
+<center>
+![](./images/ggplot2_geom_boxplot.png){style="width:150px"}
+</center>
+
+Create a flipped boxplot with `amphibian_div_tbl` plotting boxes of body size across families.
+
+In other words:
+
+- Use the tibble `amphibian_div_tbl` to create a `ggplot` object
+- Use `Body_size_mm` as the __x__ aesthetic
+- Use `Family` as the __y__ aesthetic
+- Use `geom_boxplot()` as the `ggplot` layer
+
+[Tidyverse `geom_boxplot()` page](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_boxplot.html)
+
+### Code
+
+```{r boxplot-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%"}
+amphibian_div_tbl
+```
+
+```{r boxplot-exercise-solution}
+amphibian_div_tbl |>
+  #ggplot flipped boxplot of Body size across families
+  ggplot2::ggplot(aes(x=Body_size_mm,y=Family)) +
+  ggplot2::geom_boxplot()
+```
+
+## Other geoms
+<center>
+![](./images/ggplot2_other_geoms.png){style="width:150px"}
+</center>
+
+Create a hexagonal 2D bin count heatmap of `mushroom_tbl` plotting the counts of different stem heights against stem width.
+
+In other words:
+
+- Use the tibble `mushroom_tbl` to create a `ggplot` object
+- Use `stem_width` as the __x__ aesthetic
+- Use `stem_height` as the __y__ aesthetic
+- Use `geom_hex()` as the `ggplot` layer
+
+[Tidyverse other geoms page](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_others.html)
+
+### Code
+
+```{r hex2d-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%"}
+mushroom_tbl
+```
+
+```{r hex2d-exercise-solution}
+mushroom_tbl |>
+  ggplot2::ggplot(aes(x=stem_width, y=stem_height)) +
+  ggplot2::geom_hex()
+```
+
+
+## Customisation
+<center>
+![](./images/ggplot2_customise.png){style="width:150px"}
+</center>
+
+A great advantage of `ggplot2` is the ability to customise plots by adding components and options.
+
+### Components
+
+Various non layer components includes:
+
+- [__`labs()`__](https://neof-workshops.github.io/Tidyverse/ggplot2/labels.html): Modifying labels on the axes, legend, and other plot labels
+- [__`theme()`__](https://neof-workshops.github.io/Tidyverse/ggplot2/theme.html): Modifying components of a theme including the legend position and the font sizes in the plot
+- [__Scale values__](https://neof-workshops.github.io/Tidyverse/ggplot2/scale_values.html): How to modify the scale of the x and y axis (e.g. plot values as log10 values or square root values)
+- [__Colour scales__](https://neof-workshops.github.io/Tidyverse/ggplot2/colour_scales.html): How to set the colours for aesthetics
+- [__Guides__](https://neof-workshops.github.io/Tidyverse/ggplot2/guides.html): Modify the appearance of guides including the layout of the legend and axes values
+  - Setting number of rows for legend values
+  - Allowing axis value/guides to dodge each other when they would otherwise overlap
+- [__Annotations__](https://neof-workshops.github.io/Tidyverse/ggplot2/annotation.html): Adding text and lines onto the plotting area
+  - Includes how to create a [statistical lm abline with the equation on the plot](https://neof-workshops.github.io/Tidyverse/ggplot2/annotation.html#statistical-abline-and-equation)
+- [__Coordinate systems__](https://neof-workshops.github.io/Tidyverse/ggplot2/coordinate_systems.html): Modify how the x and y aesthetics combine
+  - Modify the x and y aspect ratio
+- [__Facetting__](https://neof-workshops.github.io/Tidyverse/ggplot2/facet.html): Splitting a plot into multiple panels by subsetting the visualised data by one or two metadata categories
+
+### Quiz
+
+There is a lot of information in the various web pages for the different components.
+Rather than reading through them all one-by-one, attempt the below questions.
+With each question search for the answer in the cookbook website.
+
+[Tidyverse customisation overview](https://neof-workshops.github.io/Tidyverse/ggplot2/ggplot2.html#customisation)
+
+### Annotate, lab or theme?
+
+```{r custom-1-mcq, echo=FALSE}
+question("Which function can change the names/labels of the x and/y axis?",
+  answer("`annotate()`"),
+  answer("`labs()`", correct = TRUE),
+  answer("`theme()`"),
+  allow_retry = TRUE
+)
+```
+
+```{r custom-2-mcq, echo=FALSE}
+question("Which function can change font size and/or colour?",
+  answer("`annotate()`"),
+  answer("`labs()`"),
+  answer("`theme()`", correct = TRUE),
+  allow_retry = TRUE
+)
+```
+
+```{r custom-3-mcq, echo=FALSE}
+question("Which function can add custom text onto a plot?",
+  answer("`annotate()`", correct = TRUE),
+  answer("`labs()`"),
+  answer("`theme()`"),
+  allow_retry = TRUE
+)
+```
+
+### Scales
+
+```{r custom-4-mcq, echo=FALSE}
+question("Which function can change colours for the colour/fill aesthetic to a colour brewer palette?",
+  answer("`scale_colour_brewer()`/`scale_fill_brewer()`", correct = TRUE),
+  answer("`scale_colour_manual()`/`scale_colour_manual()`"),
+  answer("`scale_x_continuous()`/`scale_y_continuous()`"),
+  allow_retry = TRUE
+)
+```
+
+```{r custom-5-mcq, echo=FALSE}
+question("Which function can set the breaks and limits of the x/y aesthetic?",
+  answer("`scale_colour_brewer()`/`scale_fill_brewer()`"),
+  answer("`scale_colour_manual()`/`scale_colour_manual()`"),
+  answer("`scale_x_continuous()`/`scale_y_continuous()`", correct = TRUE),
+  allow_retry = TRUE
+)
+```
+
+```{r custom-6-mcq, echo=FALSE}
+question("Which function can change colours for the colour/fill aesthetic to a custom palette contained in a vector?",
+  answer("`scale_colour_brewer()`/`scale_fill_brewer()`"),
+  answer("`scale_colour_manual()`/`scale_colour_manual()`", correct = TRUE),
+  answer("`scale_x_continuous()`/`scale_y_continuous()`"),
+  allow_retry = TRUE
+)
+```
+
+### Guides and coordinate systems
+
+```{r custom-7-mcq, echo=FALSE}
+question("Which function can set the number of columns for legend values?",
+  answer("`coord_fixed()`"),
+  answer("`guide_axis()`"),
+  answer("`legend_guide()`", correct = TRUE),
+  allow_retry = TRUE
+)
+```
+
+```{r custom-8-mcq, echo=FALSE}
+question("Which function can allow the x or y axis values to dodge each other?",
+  answer("`coord_fixed()`"),
+  answer("`guide_axis()`", correct = TRUE),
+  answer("`legend_guide()`"),
+  allow_retry = TRUE
+)
+```
+
+```{r custom-9-mcq, echo=FALSE}
+question("Which function can set the aspect ratio for the x and y axis?",
+  answer("`coord_fixed()`", correct = TRUE),
+  answer("`guide_axis()`"),
+  answer("`legend_guide()`"),
+  allow_retry = TRUE
+)
+```
+
+### Facetting
+
+```{r custom-10-mcq, echo=FALSE}
+question("When setting the scales as free which function has free scales for each panel?",
+  answer("`dplyr::vars()`"),
+  answer("`ggplot2::facet_grid()`"),
+  answer("`ggplot2::facet_wrap()`", correct = TRUE),
+  allow_retry = TRUE
+)
+```
+
+```{r custom-11-mcq, echo=FALSE}
+question("Which function must variables be put in when facetting?",
+  answer("`dplyr::vars()`", correct = TRUE),
+  answer("`ggplot2::facet_grid()`"),
+  answer("`ggplot2::facet_wrap()`"),
+  allow_retry = TRUE
+)
+```
+
+```{r custom-12-mcq, echo=FALSE}
+question("Which function is better suited for facetting by 2 discrete variables?",
+  answer("`dplyr::vars()`"),
+  answer("`ggplot2::facet_grid()`", correct = TRUE),
+  answer("`ggplot2::facet_wrap()`"),
+  allow_retry = TRUE
+)
+```
+
+## Challenges +
+<center>
+![](./images/ggplot2_challenges.png){style="width:150px"}
+</center>
+
+To finish off this tutorial you will use all you have learnt to improve the plots you created when learning the different layers.
+
+Each challenge will have the final code from the previous plots you created.
+You will need to follow the instructions to edit and add components to the code.
+Additionally, you will need to pipe the data into `dplyr` and `tidyr` functions before the `ggplot` creation for some of the challenges.
+
+This tutorial aims to make you familiar with `tidyverse` and our [Tidyverse website](https://neof-workshops.github.io/Tidyverse/).
+Please use our site as a reference and feel free to copy, paste, and edit the code from it.
+
+## Bar chart +
+
+Change the colours used for the __fill__ aesthetic to the Wong palette shown in the [Colour scales page](https://neof-workshops.github.io/Tidyverse/ggplot2/colour_scales.html).
+
+Your final plot should look like the below:
+
+```{r bar-chart-extra-exercise-example, echo=FALSE, out.width="100%"}
+#Wong palette
+wong_pal <- c("#e69f00","#56b4e9","#009e73","#f0e442",
+                "#0072b2","#d55e00","#cc79a7","#000000")
+##ggplot
+mushroom_tbl |>
+  ggplot2::ggplot(aes(x=cap_color, fill=cap_shape)) +
+  #Relative proportion bar chart
+  ggplot2::geom_bar(position="fill") +
+  #Wong palette for fill
+  ggplot2::scale_fill_manual(values = wong_pal)
+```
+
+```{r bar-chart-extra-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%"}
+mushroom_tbl |>
+  ggplot2::ggplot(aes(x=cap_color, fill=cap_shape)) +
+  #Relative proportion bar chart
+  ggplot2::geom_bar(position="fill")
+```
+
+```{r bar-chart-extra-exercise-solution}
+#Wong palette
+wong_pal <- c("#e69f00","#56b4e9","#009e73","#f0e442",
+                "#0072b2","#d55e00","#cc79a7","#000000")
+##ggplot
+mushroom_tbl |>
+  ggplot2::ggplot(aes(x=cap_color, fill=cap_shape)) +
+  #Relative proportion bar chart
+  ggplot2::geom_bar(position="fill") +
+  #Wong palette for fill
+  ggplot2::scale_fill_manual(values = wong_pal)
+```
+
+Splendid!
+
+## Histogram +
+
+Carry out the following:
+
+- Set the __color__ aesthetic to `species`
+- Change the __layer__ from a histogram to a __frequency polygon__
+  - Keep the bin width value as 5
+- Change the __x__ label to "Weight (grams)"
+
+The final plot should look like the below:
+
+```{r histogram-extra-exercise-example, echo=FALSE, out.width="100%"}
+and_vertebrates |>
+  #Remove rows with NAs in weight_g column
+  tidyr::drop_na(weight_g) |>
+  #ggplot histogram of weight counts
+  ggplot2::ggplot(aes(x=weight_g, color=species)) +
+  #Bin width set to 5
+  ggplot2::geom_freqpoly(binwidth=5) +
+  #X label set
+  ggplot2::labs(x = "Weight (grams)")
+```
+
+```{r histogram-extra-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%"}
+and_vertebrates |>
+  #Remove rows with NAs in weight_g column
+  tidyr::drop_na(weight_g) |>
+  #ggplot histogram of weight counts
+  ggplot2::ggplot(aes(x=weight_g)) +
+  #Bin width set to 5
+  ggplot2::geom_histogram(binwidth=5)
+```
+
+```{r histogram-extra-exercise-solution}
+and_vertebrates |>
+  #Remove rows with NAs in weight_g column
+  tidyr::drop_na(weight_g) |>
+  #ggplot histogram of weight counts
+  ggplot2::ggplot(aes(x=weight_g, color=species)) +
+  #Bin width set to 5
+  ggplot2::geom_freqpoly(binwidth=5) +
+  #X label set
+  ggplot2::labs(x = "Weight (grams)")
+```
+
+Exemplary!
+
+## Line chart +
+
+Carry out the following:
+
+- Change the __layer__ from a normal line chart to a __steps__ line chart
+- Set the __legend text size__ to __8__
+- Set the __legend position__ to the __bottom__ of the plot 
+
+The final plot should look like the below:
+
+```{r line-chart-extra-exercise-example, echo=FALSE, out.width="100%"}
+living_planet_tbl |>
+  #ggplot step chart of average index (y) against Year (x) split by Region
+  ggplot(aes(x=Year, y=`Average Index`, colour=Region)) +
+  geom_step() +
+  #Add a plot title
+  labs(title="Living Planet Index") +
+  #Set size of legend text and set position to bottom of plot
+  theme(legend.text = ggplot2::element_text(size=8),
+        legend.position="bottom")
+```
+
+```{r line-chart-extra-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%"}
+living_planet_tbl |>
+  #ggplot line chart of average index (y) against Year (x) split by Region
+  ggplot(aes(x=Year, y=`Average Index`, colour=Region)) +
+  geom_line()
+```
+
+```{r line-chart-extra-exercise-solution}
+living_planet_tbl |>
+  #ggplot step chart of average index (y) against Year (x) split by Region
+  ggplot(aes(x=Year, y=`Average Index`, colour=Region)) +
+  geom_step() +
+  #Add a plot title
+  labs(title="Living Planet Index") +
+  #Set size of legend text and set position to bottom of plot
+  theme(legend.text = ggplot2::element_text(size=8),
+        legend.position="bottom")
+```
+
+Amazing!
+
+## Scatter plot +
+
+Carry out the following:
+
+- Remove rows where `Height` is equal to 0
+- Change the __color__ aesthetic to `Age`
+- __Facet grid__ the plot by __rows__ using the `Sex` variable
+- Scale transform the __y__ axis by __log10__
+
+The final plot should look like the below:
+
+```{r point-extra-exercise-example, out.width="100%", echo=FALSE}
+crab_age_pred_tbl |>
+  #Remove rows/observations where Height equals 0
+  #To avoid warnings from the scale transformation
+  dplyr::filter(Height != 0) |>
+  #ggplot point chart of Height (y) against Length (x) coloured by age
+  ggplot2::ggplot(aes(x=Length, y=Height, color=Age)) +
+  ggplot2::geom_point() +
+  #Facet grid by rows using the Sex variable
+  ggplot2::facet_grid(rows=dplyr::vars(Sex)) +
+  #Scale the y axis by log10
+  ggplot2::scale_y_log10()
+```
+
+```{r point-extra-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%", fig.height=6}
+crab_age_pred_tbl |>
+  ggplot2::ggplot(aes(x=Length, y=Height, color=Sex)) +
+  ggplot2::geom_point()
+```
+
+```{r point-extra-exercise-solution}
+crab_age_pred_tbl |>
+  #Remove rows/observations where Height equals 0
+  #To avoid warnings from the scale transformation
+  dplyr::filter(Height != 0) |>
+  #ggplot point chart of Height (y) against Length (x) coloured by age
+  ggplot2::ggplot(aes(x=Length, y=Height, color=Age)) +
+  ggplot2::geom_point() +
+  #Facet grid by rows using the Sex variable
+  ggplot2::facet_grid(rows=dplyr::vars(Sex)) +
+  #Scale the y axis by log10
+  ggplot2::scale_y_log10()
+```
+
+Superlative!
+
+## Boxplot +
+
+Carry out the following:
+
+- Drop rows where the `iucn_2cat` value is `NA`
+- Set `Family` to the __x__ aesthetic
+- Set `Body_size_mm` to the __y__ aesthetic
+- Discard outliers from the boxplot
+  - You will need to look at the [official tidyverse `geom_boxplot()` page](https://ggplot2.tidyverse.org//reference/geom_boxplot.html)
+- Add the `geom_jitter()` layer and colour these points by `iucn_2cat`.
+- Make the __x axis labels dodge__ each other
+  - Use 3 rows to dodge
+
+The final plot should look like the below:
+
+```{r boxplot-extra-exercise-example, echo=FALSE, out.width="100%"}
+amphibian_div_tbl |>
+  #Drop rows where iucn_2cat is NA
+  tidyr::drop_na(iucn_2cat) |>
+  #ggplot boxplot of Body size acorss families
+  ggplot2::ggplot(aes(x=Family,y=Body_size_mm)) +
+  #Boxplot ensuring outliers are removed
+  ggplot2::geom_boxplot(outliers=FALSE) +
+  #Jitter points coloured by iucn_2cat
+  ggplot2::geom_jitter(aes(color=iucn_2cat)) +
+  #Set 3 rows for x axis label dodging
+  ggplot2::guides(x = ggplot2::guide_axis(n.dodge = 3))
+```
+
+```{r boxplot-extra-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%"}
+amphibian_div_tbl |>
+  ggplot2::ggplot(aes(y=Family,x=Body_size_mm)) +
+  ggplot2::geom_boxplot()
+```
+
+```{r boxplot-extra-exercise-solution}
+amphibian_div_tbl |>
+  #Drop rows where iucn_2cat is NA
+  tidyr::drop_na(iucn_2cat) |>
+  #ggplot boxplot of Body size acorss families
+  ggplot2::ggplot(aes(x=Family,y=Body_size_mm)) +
+  #Boxplot ensuring outliers are removed
+  ggplot2::geom_boxplot(outliers=FALSE) +
+  #Jitter points coloured by iucn_2cat
+  ggplot2::geom_jitter(aes(color=iucn_2cat)) +
+  #Set 3 rows for x axis label dodging
+  ggplot2::guides(x = ggplot2::guide_axis(n.dodge = 3))
+```
+
+Exceptional!
+
+## Other geoms +
+
+Carry out the following:
+
+- Keep rows where `class` is equal to "poisonous"
+- Set the bin width of `geom_hex()` to 2
+  - [official `geom_hex()` reference page](https://ggplot2.tidyverse.org//reference/geom_hex.html)
+[Tidyverse other geoms page](https://neof-workshops.github.io/Tidyverse/ggplot2/geom_others.html)
+- Set the plot aspect ratio to 1
+- Set the continuous __x__ scale with the following features:
+  - The name/label is "Stem width (cm)"
+  - The breaks go from 0 to 60 by steps of 5
+- Set the continuous __y__ scale with the following features:
+  - The name/label is "Stem height (cm)"
+  - The breaks go from 0 to 20 by steps of 5
+  - The limits go from -1 to 22
+- Set the __title__ label to "Count of stem height against stem width of poisonous mushrooms"
+- Set the __legend position__ to the bottom of the plot
+
+The final plot should look like the below:
+
+```{r hex2d-extra-exercise-example, echo=FALSE, out.width="100%"}
+mushroom_tbl |>
+  dplyr::filter(class=="poisonous") |>
+  ggplot2::ggplot(aes(x=stem_width, y=stem_height)) +
+  #Set bin width of geom hex
+  ggplot2::geom_hex(binwidth=2) +
+  #Fixed aspect ratio
+  ggplot2::coord_fixed(ratio=1) +
+  #Change x and y scales
+  ggplot2::scale_x_continuous(name="Stem width (cm)", breaks=seq(from=0,to=60,by=5)) +
+  ggplot2::scale_y_continuous(name="Stem height (cm)", 
+                              breaks=seq(from=0,to=20,by=5),limits=c(-1,22)) +
+  #Custom labels
+  ggplot2::labs(title="Count of stem height against stem width of poisonous mushrooms") +
+  #Set plot legend to bottom of plot
+  ggplot2::theme(legend.position="bottom")
+```
+
+```{r hex2d-extra-exercise, exercise=TRUE, exercise.eval=FALSE, out.width="100%"}
+mushroom_tbl |>
+  ggplot2::ggplot(aes(x=stem_width, y=stem_height)) +
+  ggplot2::geom_hex()
+```
+
+```{r hex2d-extra-exercise-solution}
+mushroom_tbl |>
+  dplyr::filter(class=="poisonous") |>
+  ggplot2::ggplot(aes(x=stem_width, y=stem_height)) +
+  #Set bin width of geom hex
+  ggplot2::geom_hex(binwidth=2) +
+  #Fixed aspect ratio
+  ggplot2::coord_fixed(ratio=1) +
+  #Change x and y scales
+  ggplot2::scale_x_continuous(name="Stem width (cm)", breaks=seq(from=0,to=60,by=5)) +
+  ggplot2::scale_y_continuous(name="Stem height (cm)", 
+                              breaks=seq(from=0,to=20,by=5),limits=c(-1,22)) +
+  #Custom labels
+  ggplot2::labs(title="Count of stem height against stem width of poisonous mushrooms") +
+  #Set plot legend to bottom of plot
+  ggplot2::theme(legend.position="bottom")
+```
+
+Champion! That's the end, I hope it was useful.
