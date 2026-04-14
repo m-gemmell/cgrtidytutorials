@@ -96,7 +96,7 @@ if (window.hljs) {
 </style>
 <!-- end tabsets -->
 
-<link rel="stylesheet" href="Tibbles_files/sass96ee5093a306d05d64e01041be2b88e7/style.min.css" type="text/css" />
+<link rel="stylesheet" href="Tibbles_files/sass730b1c1dd4394e9c69ae494a5d915b6d/style.min.css" type="text/css" />
 
 </head>
 
@@ -263,7 +263,7 @@ data-label="df-to-tbl-exercise-solution" data-completion="0"
 data-diagnostics="1" data-startover="1" data-lines="0"
 data-pipe="|&gt;">
 <pre class="text"><code>#Assign tibble object to variable tbl
-tbl &lt;- as_tibble(iris)
+tbl &lt;- tibble::as_tibble(iris)
 #Print tbl
 print(tbl)</code></pre>
 </div>
@@ -411,7 +411,7 @@ subsetting page</a></p>
 <h3>Subsetting exercises</h3>
 <p>For the exercises we’ll use the tibble
 <code>mgrtibbles::mammal_sleep_tbl</code> which contains information on
-the amount of average sleep of various mammals.</p>
+the average sleep amounts of various mammals.</p>
 <pre><code>## # A tibble: 62 × 11
 ##    species          body_wt brain_wt non_dreaming dreaming total_sleep life_span
 ##    &lt;chr&gt;              &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
@@ -444,7 +444,7 @@ data-pipe="|&gt;">
 data-label="dreaming-col-to-vector-exercise-solution"
 data-completion="0" data-diagnostics="1" data-startover="1"
 data-lines="0" data-pipe="|&gt;">
-<pre class="text"><code>print(mammal_sleep_tbl$dreaming)</code></pre>
+<pre class="text"><code>mammal_sleep_tbl$dreaming</code></pre>
 </div>
 <p>Print the first 4 elements of the <code>brain_wt</code> column as a
 <strong>vector</strong>.</p>
@@ -459,7 +459,7 @@ data-pipe="|&gt;">
 data-label="brain-wt-col-to-vector-exercise-solution"
 data-completion="0" data-diagnostics="1" data-startover="1"
 data-lines="0" data-pipe="|&gt;">
-<pre class="text"><code>print(mammal_sleep_tbl$brain_wt[1:4])</code></pre>
+<pre class="text"><code>mammal_sleep_tbl$brain_wt[1:4]</code></pre>
 </div>
 </div>
 <div id="section-extract-with-1" class="section level3">
@@ -740,9 +740,9 @@ learnr:::store_exercise_cache(structure(list(label = "df-to-tbl-exercise", globa
         opts = list(label = "\"df-to-tbl-exercise\"", exercise = "TRUE", 
             exercise.eval = "FALSE"), engine = "r")), code_check = NULL, 
     error_check = NULL, check = NULL, solution = structure(c("#Assign tibble object to variable tbl", 
-    "tbl <- as_tibble(iris)", "#Print tbl", "print(tbl)"), chunk_opts = list(
-        label = "df-to-tbl-exercise-solution")), tests = NULL, 
-    options = list(eval = FALSE, echo = TRUE, results = "markup", 
+    "tbl <- tibble::as_tibble(iris)", "#Print tbl", "print(tbl)"
+    ), chunk_opts = list(label = "df-to-tbl-exercise-solution")), 
+    tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
@@ -770,13 +770,13 @@ learnr:::store_exercise_cache(structure(list(label = "df-to-tbl-exercise", globa
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "create-tbl-mcq-1", 
     question = structure("When creating a tibble from vectors, what do the vectors become?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_db05385", 
+    "character")), answers = list(structure(list(id = "lnr_ans_396753a", 
         option = "Columns", value = "Columns", label = structure("Columns", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_458b10a", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_6668c67", 
         option = "Rows", value = "Rows", label = structure("Rows", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9bbdc85", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9678d58", 
         option = "Row names", value = "Row names", label = structure("Row names", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -787,7 +787,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "create-tbl-mcq-1-answer", question = "create-tbl-mcq-1"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1501941416.3006, options = list()), class = c("learnr_radio", 
+    seed = 1125520268.47589, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -795,15 +795,15 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "create-tbl-mcq-2", 
     question = structure("What function can be used to create a tibble from vectors?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_64520d8", 
+    "character")), answers = list(structure(list(id = "lnr_ans_84f1c90", 
         option = "`tibble::as_tibble()`", value = "`tibble::as_tibble()`", 
         label = structure("<code>tibble::as_tibble()<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9886a4c", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_45cfefa", 
         option = "`tibble::read_csv()`", value = "`tibble::read_csv()`", 
         label = structure("<code>tibble::read_csv()<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9f71f39", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_527841f", 
         option = "`tibble::tibble()`", value = "`tibble::tibble()`", 
         label = structure("<code>tibble::tibble()<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -815,22 +815,22 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "create-tbl-mcq-2-answer", question = "create-tbl-mcq-2"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1240013442.42257, options = list()), class = c("learnr_radio", 
+    seed = 555793371.241189, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "create-tbl-mcq-3", 
     question = structure("What function can be used to convert a data.frame to a tibble?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_f9d1e65", 
+    "character")), answers = list(structure(list(id = "lnr_ans_fe5c35c", 
         option = "`tibble::as_tibble()`", value = "`tibble::as_tibble()`", 
         label = structure("<code>tibble::as_tibble()<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_b3f19a9", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f1f8ffd", 
         option = "`tibble::read_csv()`", value = "`tibble::read_csv()`", 
         label = structure("<code>tibble::read_csv()<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_3cfbe6d", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_ee565ca", 
         option = "`tibble::tibble()`", value = "`tibble::tibble()`", 
         label = structure("<code>tibble::tibble()<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -842,7 +842,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "create-tbl-mcq-3-answer", question = "create-tbl-mcq-3"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 830348552.613339, options = list()), class = c("learnr_radio", 
+    seed = 2088127518.52764, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -850,13 +850,13 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "str-tbl-mcq-1", 
     question = structure("The top line of a printed tibble shows?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_19116a8", 
+    "character")), answers = list(structure(list(id = "lnr_ans_c84ebd8", 
         option = "Data class", value = "Data class", label = structure("Data class", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_b384f97", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e5f5bb", 
         option = "Size info", value = "Size info", label = structure("Size info", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_8c0aedd", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_3c1e4f8", 
         option = "Variables", value = "Variables", label = structure("Variables", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -867,20 +867,20 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "str-tbl-mcq-1-answer", question = "str-tbl-mcq-1"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 60135747.9719971, options = list()), class = c("learnr_radio", 
+    seed = 1387506683.35389, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "str-tbl-mcq-2", 
     question = structure("Rows are observations. What are columns?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_6a2363a", 
+    "character")), answers = list(structure(list(id = "lnr_ans_6e64891", 
         option = "Data class", value = "Data class", label = structure("Data class", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d8ac33c", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e0f4399", 
         option = "Size info", value = "Size info", label = structure("Size info", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a6a281d", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e207321", 
         option = "Variables", value = "Variables", label = structure("Variables", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -891,7 +891,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "str-tbl-mcq-2-answer", question = "str-tbl-mcq-2"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1463920717.81831, options = list()), class = c("learnr_radio", 
+    seed = 179985099.416188, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -899,13 +899,13 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "str-tbl-mcq-3", 
     question = structure("What is displayed below each column name?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_15755a8", 
+    "character")), answers = list(structure(list(id = "lnr_ans_cff4a26", 
         option = "Data class", value = "Data class", label = structure("Data class", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_162e9f6", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_973d104", 
         option = "Size info", value = "Size info", label = structure("Size info", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_bc559e6", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9e1af60", 
         option = "Variables", value = "Variables", label = structure("Variables", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -916,20 +916,20 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "str-tbl-mcq-3-answer", question = "str-tbl-mcq-3"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 727632592.16117, options = list()), class = c("learnr_radio", 
+    seed = 1645561080.23373, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "str-tbl-mcq-4", 
     question = structure("What do tibbles not have?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_5b969ca", 
+    "character")), answers = list(structure(list(id = "lnr_ans_4a8e5ce", 
         option = "Columns", value = "Columns", label = structure("Columns", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9bf9324", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_23b72e4", 
         option = "Rows", value = "Rows", label = structure("Rows", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4637a4b", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_5d7a155", 
         option = "Row names", value = "Row names", label = structure("Row names", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -940,7 +940,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "str-tbl-mcq-4-answer", question = "str-tbl-mcq-4"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1180519327.95028, options = list()), class = c("learnr_radio", 
+    seed = 1951286583.59136, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -960,7 +960,7 @@ learnr:::store_exercise_cache(structure(list(label = "dreaming-col-to-vector-exe
     chunks = list(list(label = "dreaming-col-to-vector-exercise", 
         code = "mammal_sleep_tbl", opts = list(label = "\"dreaming-col-to-vector-exercise\"", 
             exercise = "TRUE", exercise.eval = "FALSE"), engine = "r")), 
-    code_check = NULL, error_check = NULL, check = NULL, solution = structure("print(mammal_sleep_tbl$dreaming)", chunk_opts = list(
+    code_check = NULL, error_check = NULL, check = NULL, solution = structure("mammal_sleep_tbl$dreaming", chunk_opts = list(
         label = "dreaming-col-to-vector-exercise-solution")), 
     tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
@@ -1002,7 +1002,7 @@ learnr:::store_exercise_cache(structure(list(label = "brain-wt-col-to-vector-exe
     chunks = list(list(label = "brain-wt-col-to-vector-exercise", 
         code = "mammal_sleep_tbl", opts = list(label = "\"brain-wt-col-to-vector-exercise\"", 
             exercise = "TRUE", exercise.eval = "FALSE"), engine = "r")), 
-    code_check = NULL, error_check = NULL, check = NULL, solution = structure("print(mammal_sleep_tbl$brain_wt[1:4])", chunk_opts = list(
+    code_check = NULL, error_check = NULL, check = NULL, solution = structure("mammal_sleep_tbl$brain_wt[1:4]", chunk_opts = list(
         label = "brain-wt-col-to-vector-exercise-solution")), 
     tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
@@ -1200,13 +1200,13 @@ learnr:::store_exercise_cache(structure(list(label = "tbl-extract-three-exercise
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "sub-tbl-mcq-1", 
     question = structure("Subsetting multiple elements with <code>[,]<\u002fcode> produces a:", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_2356cd7", 
+    "character")), answers = list(structure(list(id = "lnr_ans_621e515", 
         option = "Scalar", value = "Scalar", label = structure("Scalar", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4514210", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_971fe1b", 
         option = "Tibble", value = "Tibble", label = structure("Tibble", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_5be593d", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a4c30b0", 
         option = "Vector", value = "Vector", label = structure("Vector", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1217,20 +1217,20 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "sub-tbl-mcq-1-answer", question = "sub-tbl-mcq-1"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1718758977.19964, options = list()), class = c("learnr_radio", 
+    seed = 54132552.4747926, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "sub-tbl-mcq-2", 
     question = structure("Subsetting by a column name with <code>$<\u002fcode> produces a:", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_f997d9", 
+    "character")), answers = list(structure(list(id = "lnr_ans_fb2fea7", 
         option = "Scalar", value = "Scalar", label = structure("Scalar", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d4de596", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_74c0835", 
         option = "Tibble", value = "Tibble", label = structure("Tibble", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_13c0c41", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d3aa0e9", 
         option = "Vector", value = "Vector", label = structure("Vector", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1241,7 +1241,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "sub-tbl-mcq-2-answer", question = "sub-tbl-mcq-2"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 627648013.207729, options = list()), class = c("learnr_radio", 
+    seed = 231236045.892322, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -1249,13 +1249,13 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "sub-tbl-mcq-3", 
     question = structure("Subsetting one element with <code>[,]<\u002fcode> produces a:", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_c289215", 
+    "character")), answers = list(structure(list(id = "lnr_ans_8e0c85f", 
         option = "Scalar", value = "Scalar", label = structure("Scalar", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4bcd147", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_bbf0c95", 
         option = "Tibble", value = "Tibble", label = structure("Tibble", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4f80263", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a805e8d", 
         option = "Vector", value = "Vector", label = structure("Vector", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1266,7 +1266,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "sub-tbl-mcq-3-answer", question = "sub-tbl-mcq-3"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 405109780.311356, options = list()), class = c("learnr_radio", 
+    seed = 858048238.60044, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 </p>
@@ -1277,7 +1277,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 <!--/html_preserve-->
 <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="execution_dependencies">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77]}},"value":[{"type":"character","attributes":{},"value":["backports","base","bslib","cachem","checkmate","cli","commonmark","compiler","datasets","digest","dplyr","evaluate","farver","fastmap","fontawesome","forcats","fs","generics","ggplot2","glue","graphics","grDevices","grid","gtable","hms","htmltools","htmlwidgets","httpuv","jquerylib","jsonlite","knitr","later","learnr","lifecycle","litedown","lterdatasampler","lubridate","magrittr","markdown","methods","mgrtibbles","mime","otel","pillar","pkgconfig","promises","purrr","R6","RColorBrewer","Rcpp","readr","renv","rlang","rmarkdown","rprojroot","rstudioapi","S7","sass","scales","shiny","stats","stringi","stringr","tibble","tidyr","tidyselect","tidyverse","timechange","tools","tzdb","utf8","utils","vctrs","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["1.5.0","4.5.2","0.9.0","1.1.0","2.3.3","3.6.5","2.0.0","4.5.2","4.5.2","0.6.37","1.1.4","1.0.4","2.1.2","1.2.0","0.5.3","1.0.1","1.6.6","0.1.4","4.0.1","1.8.0","4.5.2","4.5.2","4.5.2","0.3.6","1.1.4","0.5.8.1","1.6.4","1.6.16","0.1.4","2.0.0","1.50","1.4.2","0.11.6","1.0.5","0.9","0.1.1","1.9.4","2.0.4","2.0","4.5.2","0.0.0.9000","0.13","0.2.0","1.11.1","2.0.3","1.5.0","1.2.1","2.6.1","1.1-3","1.1.0","2.1.6","1.1.6","1.1.7","2.29","2.1.1","0.17.1","0.2.1","0.4.10","1.4.0","1.12.1","4.5.2","1.8.7","1.6.0","3.3.1","1.3.2","1.2.1","2.0.0","0.3.0","4.5.2","0.5.0","1.2.6","4.5.2","0.7.1","3.0.2","0.56","1.8-4","2.3.10"]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77]}},"value":[{"type":"character","attributes":{},"value":["backports","base","bslib","cachem","checkmate","cli","commonmark","compiler","datasets","digest","dplyr","evaluate","farver","fastmap","fontawesome","forcats","fs","generics","ggplot2","glue","graphics","grDevices","grid","gtable","hms","htmltools","htmlwidgets","httpuv","jquerylib","jsonlite","knitr","later","learnr","lifecycle","litedown","lterdatasampler","lubridate","magrittr","markdown","methods","mgrtibbles","mime","otel","pillar","pkgconfig","promises","purrr","R6","RColorBrewer","Rcpp","readr","renv","rlang","rmarkdown","rprojroot","rstudioapi","S7","sass","scales","shiny","stats","stringi","stringr","tibble","tidyr","tidyselect","tidyverse","timechange","tools","tzdb","utf8","utils","vctrs","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["1.5.0","4.5.3","0.9.0","1.1.0","2.3.3","3.6.5","2.0.0","4.5.3","4.5.3","0.6.37","1.1.4","1.0.4","2.1.2","1.2.0","0.5.3","1.0.1","1.6.6","0.1.4","4.0.1","1.8.0","4.5.3","4.5.3","4.5.3","0.3.6","1.1.4","0.5.8.1","1.6.4","1.6.16","0.1.4","2.0.0","1.50","1.4.2","0.11.6","1.0.5","0.9","0.1.1","1.9.4","2.0.4","2.0","4.5.3","0.0.0.9000","0.13","0.2.0","1.11.1","2.0.3","1.5.0","1.2.1","2.6.1","1.1-3","1.1.0","2.1.6","1.1.6","1.1.7","2.29","2.1.1","0.17.1","0.2.1","0.4.10","1.4.0","1.12.1","4.5.3","1.8.7","1.6.0","3.3.1","1.3.2","1.2.1","2.0.0","0.3.0","4.5.3","0.5.0","1.2.6","4.5.3","0.7.1","3.0.2","0.56","1.8-4","2.3.10"]}]}]}
 </script>
 <!--/html_preserve-->
 </div>
