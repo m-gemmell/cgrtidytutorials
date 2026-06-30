@@ -616,7 +616,7 @@ crop_and_soil_tbl |>
 Extract all the columns with a name that starts with "cap" from `mushroom_tbl`.
 Then only retain rows where the `cap_color` is "red".
 
-```{r select-4-exercise, exercise=TRUE, exercise.eval=TRUE}
+```{r select-4-exercise, exercise=TRUE, exercise.eval=FALSE}
 mushroom_tbl
 ```
 
@@ -633,7 +633,7 @@ mushroom_tbl  |>
 Remove the columns `total_sleep` and `gestation` from `mammal_sleep_tbl`.
 Subsequently arrange the **tibble** by the `brain_wt` column in descending order.
 
-```{r select-5-exercise, exercise=FALSE}
+```{r select-5-exercise, exercise=TRUE, exercise.eval=FALSE}
 vars  <- c("total_sleep","gestation")
 mammal_sleep_tbl
 ```

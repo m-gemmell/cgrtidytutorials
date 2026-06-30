@@ -403,7 +403,7 @@ Information on the rows and columns not displayed is shown below the __tibble__.
 The rules for what is displayed are:
 
 - __Width:__ The terminal will only show as many columns as it has room for
-  - The number of columns depends on the width of the columns (i.e. 10 narrow columns may fit where only 5 wide wolumns could fit)
+  - The number of columns depends on the width of the columns (i.e. 10 narrow columns may fit where only 5 wide columns could fit)
 - __Length:__ By default a maximum of 10 rows will be displayed
 
 For more detail please see:
