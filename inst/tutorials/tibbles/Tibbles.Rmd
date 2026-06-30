@@ -429,5 +429,7 @@ If you are interested in more please see the below link:
 
 ## Finish
 
+<center>![](./images/finish_flag.png){style="width:150px"}</center>
+
 Thanks and great going completing this tutorial.
 With this overview of tibbles done you can move onto the next `learnr` tutorial covering the very powerful and flexible [`dplyr`](https://cgr-liverpool.github.io/Tidyverse/dplyr/dplyr.html).

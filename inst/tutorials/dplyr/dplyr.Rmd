@@ -577,7 +577,7 @@ crab_age_pred_tbl
 ```
 
 ```{r select-1-exercise-solution}
-#Select diamter column
+#Select diameter column
 crab_age_pred_tbl |> select(Diameter)
 ```
 
@@ -821,7 +821,7 @@ nwt_pikas |>
 
 ### Challenge 2
 
-Move the date class columns to the end of `nt_icecover`.
+Move the date class columns to the end of `ntl_icecover`.
 
 ```{r relocate-2-exercise, exercise=TRUE, exercise.eval=FALSE}
 ntl_icecover

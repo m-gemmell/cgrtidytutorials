@@ -301,7 +301,7 @@ Many datasets will have missing data/values in the form of `NA`s.
 For many things these can be left alone.
 However, some calculations, such as mean, will result in a value of `NA` if an `NA` was in the data, not ideal.
 
-there are two main functions that can be used to deal with `NA`s:
+There are two main functions that can be used to deal with `NA`s:
 
 - `drop_na()`: Remove rows with NAs
 - `replace_na()`: Replace NAs
